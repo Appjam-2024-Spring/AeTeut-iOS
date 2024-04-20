@@ -20,7 +20,7 @@ struct MainView: View {
                     .padding(.vertical, 16)
                 
                 Color.gray30
-                    .frame(maxWidth: .infinity, maxHeight: 1)
+                    .frame(maxWidth: .infinity, maxHeight: 2)
                     .padding(.vertical, 24)
                 
                 SegmentControl(

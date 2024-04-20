@@ -9,7 +9,9 @@ struct ReceiveObituaryView: View {
             Color(.black).ignoresSafeArea()
             VStack(spacing: 0) {
                 ATImage(.obituaryChinease)
+                    .frame(width: 91.58, height: 61.07)
                     .padding(.top, 72)
+
                 Text("訃\(viewModel.name)님께서 별세하셨기에 삼가 알려드립니다.\n가시는 길 깊은 애도와\n명복을 빌어주시길 진심으로 바랍니다.")
                     .atFont(.subHeadLine, color: .gray100)
                     .multilineTextAlignment(.center)
@@ -32,7 +34,8 @@ struct ReceiveObituaryView: View {
                         viewModel.it.copyToClipboard
                         
                     }label: {
-                        Image("copy")
+                        ATIcon(.copy)
+                            .frame(24)
                             .padding(.trailing, 20)
                             .padding(.bottom, 7)
                     }

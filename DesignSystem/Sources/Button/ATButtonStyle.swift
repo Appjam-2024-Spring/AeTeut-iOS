@@ -23,9 +23,6 @@ public struct ATButtonStyle: ButtonStyle {
             .frame(maxWidth: .infinity)
             .background(configuration.isPressed ? style.pressedBackgroundColor : style.backgroundColor)
             .cornerRadius(8)
-            // 기본 마진
-            .padding(.vertical, 12)
-            .padding(.horizontal, 20)
     }
 }
 

@@ -1,7 +1,7 @@
 import SwiftUI
+import DesignSystem
 
-public struct ATTextField: View {
-    let title: String?
+public struct SearchTextField: View {
     let placeholder: String
     @Binding var text: String
     var onCommit: () -> Void
@@ -9,36 +9,33 @@ public struct ATTextField: View {
 
     public init(
         _ placeholder: String,
-        title: String? = nil,
         text: Binding<String>,
         onCommit: @escaping () -> Void = {}
     ) {
         self.placeholder = placeholder
-        self.title = title
         _text = text
         self.onCommit = onCommit
     }
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            if let title {
-                Text(title)
-                    .atFont(.subBody, color: .gray90)
-                    .padding(.leading, 4)
-            }
+            HStack(spacing: 4) {
+                ATIcon(.search)
+                    .frame(24)
 
-            ZStack(alignment: .leading) {
-                Text(placeholder)
-                    .atFont(.body, color: .gray50)
-                    .opacity(text.isEmpty ? 1 : 0)
-                    .onTapGesture {
-                        isFocused = true
-                    }
+                ZStack(alignment: .leading) {
+                    Text(placeholder)
+                        .atFont(.body, color: .gray50)
+                        .opacity(text.isEmpty ? 1 : 0)
+                        .onTapGesture {
+                            isFocused = true
+                        }
 
-                TextField("", text: $text)
-                    .atFont(.body, color: .gray10)
-                    .focused($isFocused)
-                    .onSubmit(onCommit)
+                    TextField("", text: $text)
+                        .atFont(.body, color: .gray10)
+                        .focused($isFocused)
+                        .onSubmit(onCommit)
+                }
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
