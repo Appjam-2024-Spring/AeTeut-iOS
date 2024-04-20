@@ -45,8 +45,7 @@ public struct NavigationBarModifier: ViewModifier {
                         Button(action: rightIcon.action) {
                             ATIcon(rightIcon.icon)
                                 .frame(28)
-                                .padding(.vertical, 6)
-                                .padding(.leading, 12)
+                                .padding(6)
                         }
                     }
                 }
@@ -70,6 +69,7 @@ public struct NavigationBarModifier: ViewModifier {
                     }
                 }
             }
+            .background(Color.gray10.ignoresSafeArea(edges: .top))
 
             content
                 .frame(maxHeight: .infinity)

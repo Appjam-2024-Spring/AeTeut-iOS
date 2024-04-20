@@ -11,7 +11,7 @@ struct RootView: View {
                     .environmentObject(appState)
 
             case .main:
-                EmptyView()
+                MainView()
                     .environmentObject(appState)
 
             case .splash:
