@@ -1,6 +1,7 @@
 import SwiftUI
 import DesignSystem
 struct MainView: View {
+    @State var isNavigatedToSendObituaryView = false
     @State var date = Date()
     @State var selection = 0
     var body: some View {
@@ -58,7 +59,8 @@ struct MainView: View {
         }
         .background(Color.gray10)
         .setNavigationBar(rightIcon: ( .send, {
-            // navigation
+            self.isNavigatedToSendObituaryView = true
         }))
+        .navigate(to: SetNameView(), when: $isNavigatedToSendObituaryView)
     }
 }

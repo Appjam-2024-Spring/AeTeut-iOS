@@ -1,9 +1,17 @@
-//
-//  SetAddressView.swift
-//  AeTeut-iOS
-//
-//  Created by 홍승재 on 4/21/24.
-//  Copyright © 2024 com.appjam. All rights reserved.
-//
+import SwiftUI
+import DesignSystem
 
-import Foundation
+struct SetAddressView: View {
+    @State var text: String = ""
+
+    var body: some View {
+        VStack(spacing: .zero) {
+            CalendarView(selectedDate: $date)
+                .padding(.horizontal, 20)
+
+            Spacer()
+        }
+        .background(Color.gray10)
+        .setNavigationBackButton()
+    }
+}

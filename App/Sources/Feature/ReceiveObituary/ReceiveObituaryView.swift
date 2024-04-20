@@ -1,8 +1,8 @@
 import SwiftUI
 import DesignSystem
 
-struct ObituaryReceiveView: View {
-    @StateObject var viewModel = ObituaryReceiveResponse()
+struct ReceiveObituaryView: View {
+    @StateObject var viewModel = ReceiveObituaryViewModel()
     @State var isPressed = false
     var body: some View {
         ZStack {
@@ -64,30 +64,27 @@ struct ObituaryReceiveView: View {
             }
         }
     }
-}
 
-@ViewBuilder
-func information(
-    title: String,
-    descripton: String
-) -> some View {
-    HStack(spacing: 0) {
-        Text(title)
-            .frame(width: 64, height: 24, alignment: .leading)
-            .atFont(.body, color: .gray80)
-        
-        
-        Text(descripton)
-            .padding(.leading, 8)
-            .frame(width: 249, height: 24, alignment: .leading)
-            .atFont(.subHeadLine, color: .gray100)
-        
-        Spacer()
+    @ViewBuilder
+    func information(
+        title: String,
+        descripton: String
+    ) -> some View {
+        HStack(spacing: 0) {
+            Text(title)
+                .frame(width: 64, height: 24, alignment: .leading)
+                .atFont(.body, color: .gray80)
+            
+            
+            Text(descripton)
+                .padding(.leading, 8)
+                .frame(width: 249, height: 24, alignment: .leading)
+                .atFont(.subHeadLine, color: .gray100)
+            
+            Spacer()
+        }
+        .padding(.leading, 20)
+        .padding(.bottom, 8)
     }
-    .padding(.leading, 20)
-    .padding(.bottom, 8)
 }
 
-#Preview {
-    ObituaryReceiveView()
-}

@@ -46,7 +46,7 @@ struct LoginView: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
         }
-        .background(Color(.black).ignoresSafeArea())
+        .background(Color(.black))
         .onChange(of: viewModel.isSuccessLogin) { _ in
             appState.sceneFlow = .main
         }

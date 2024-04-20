@@ -9,6 +9,7 @@ public struct ATIcon: View {
         case send
         case arrowDown
         case add
+        case search
     }
 
     private var image: Image
@@ -50,6 +51,9 @@ public struct ATIcon: View {
 
         case .add:
             DesignSystemAsset.Icons.add.swiftUIImage
+
+        case .search:
+            DesignSystemAsset.Icons.search.swiftUIImage
         }
     }
 }
