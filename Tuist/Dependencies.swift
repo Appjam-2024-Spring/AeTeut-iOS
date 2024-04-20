@@ -11,6 +11,10 @@ let dependencies = Dependencies(
             .remote(
                 url: "https://github.com/bendodson/MonthYearWheelPicker.git",
                 requirement: .branch("master")
+            ),
+            .remote(
+                url: "https://github.com/kakao/kakao-ios-sdk.git",
+                requirement: .branch("master")
             )
         ],
         baseSettings: .settings(

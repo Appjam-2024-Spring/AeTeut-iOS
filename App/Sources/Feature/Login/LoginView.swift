@@ -17,18 +17,6 @@ struct LoginView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                HStack(spacing: 8) {
-                    ATIcon(.appleLogo)
-                        .frame(20)
-
-                    Text("Apple로 로그인")
-                        .atFont(.subHeadLine, color: .gray10)
-                }
-                .padding(.vertical, 16)
-                .frame(maxWidth: .infinity)
-                .background(Color.Logo.appleBG)
-                .cornerRadius(8)
-
                 Button(action: viewModel.kakaoButtonDidTap) {
                     HStack(spacing: 8) {
                         ATIcon(.kakaoLogo)

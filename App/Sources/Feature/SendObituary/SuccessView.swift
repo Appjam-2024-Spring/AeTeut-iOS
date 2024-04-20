@@ -1,5 +1,8 @@
 import SwiftUI
 import DesignSystem
+import KakaoSDKShare
+import KakaoSDKTemplate
+import KakaoSDKCommon
 
 struct SuccessView: View {
     @State var isNavigatedToSuccess = false
@@ -29,7 +32,7 @@ struct SuccessView: View {
                 HStack(spacing: 0) {
                     descriptionView(text: "영결장소", content: "대전광역시 유성구 가정북로 76")
                     Button {
-                        "대전광역시 유성구 가정북로 76".copyToClipboard
+                        //"대전광역시 유성구 가정북로 76".copyToClipboard
                     } label: {
                         ATIcon(.copy)
                             .frame(24)
@@ -49,6 +52,7 @@ struct SuccessView: View {
 
                 ATButton(text: "공유하기",  style: .main, isNoPadding: true) {
                     isNavigatedToSuccess = true
+                    
                 }
             }
             .padding(.vertical, 12)
@@ -70,4 +74,10 @@ struct SuccessView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
+    
+    
+    
+    
 }
+
+
