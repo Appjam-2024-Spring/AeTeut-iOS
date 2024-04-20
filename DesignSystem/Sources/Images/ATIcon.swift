@@ -8,6 +8,7 @@ public struct ATIcon: View {
         case kakaoLogo
         case send
         case arrowDown
+        case add
     }
 
     private var image: Image
@@ -46,6 +47,9 @@ public struct ATIcon: View {
 
         case .arrowDown:
             DesignSystemAsset.Icons.arrowDown.swiftUIImage
+
+        case .add:
+            DesignSystemAsset.Icons.add.swiftUIImage
         }
     }
 }

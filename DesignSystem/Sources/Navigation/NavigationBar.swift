@@ -74,6 +74,8 @@ public struct NavigationBarModifier: ViewModifier {
             content
                 .frame(maxHeight: .infinity)
         }
+//        .ignoresSafeArea(edges: .bottom)
+        .navigationBarHidden(true)
     }
 }
 

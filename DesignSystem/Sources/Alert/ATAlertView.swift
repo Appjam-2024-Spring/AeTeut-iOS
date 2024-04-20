@@ -21,7 +21,10 @@ private struct ATAlertView: View {
         self.cancelButtonText = cancelButtonText
         self.confirmButtonText = confirmButtonText
         self.dismiss = dismiss
-        self.action = action
+        self.action = {
+            action()
+            dismiss()
+        }
     }
     
     var body: some View {
