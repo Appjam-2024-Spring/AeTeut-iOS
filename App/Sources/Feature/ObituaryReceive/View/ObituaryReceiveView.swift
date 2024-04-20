@@ -8,9 +8,11 @@
 
 import SwiftUI
 import DesignSystem
+import UIKit
 
 struct ObituaryReceiveView: View {
     @StateObject var viewModel = ObituaryReceiveResponse()
+    @State var isPressed = false
     var body: some View {
         ZStack {
             Color(.black).ignoresSafeArea()
@@ -35,7 +37,9 @@ struct ObituaryReceiveView: View {
                 HStack(spacing: 0) {
                     information(title: "영결장소", descripton: viewModel.it)
                     Button {
-                        #warning("기능추가예정")
+                        //#warning("기능추가예정")
+                        viewModel.it.copyToClipboard
+                        
                     }label: {
                         Image("copy")
                             .padding(.trailing, 20)
@@ -52,10 +56,18 @@ struct ObituaryReceiveView: View {
                 .padding(.top, 40)
                 
                 ATButton(
-                  text: "확인",
-                  style: .main
+                    text: "확인",
+                    style: .main
                 ) {
-                    #warning("Action 내용")
+                    isPressed.toggle()
+                }
+                .atAlert(isPresented: $isPressed,
+                         title: "기일을 저장하시겠습니까?",
+                         content: "기일을 저장하면\n애뜻에서 기일을 알려드립니다.",
+                         cancelButtonText: "저장하지 않기",
+                         confirmButtonText: "저장"
+                ) {
+                    isPressed.toggle()
                 }
                 Spacer()
             }
@@ -72,13 +84,13 @@ func information(
         Text(title)
             .frame(width: 64, height: 24, alignment: .leading)
             .atFont(.body, color: .gray80)
-            
+        
         
         Text(descripton)
             .padding(.leading, 8)
             .frame(width: 249, height: 24, alignment: .leading)
             .atFont(.subHeadLine, color: .gray100)
-    
+        
         Spacer()
     }
     .padding(.leading, 20)
