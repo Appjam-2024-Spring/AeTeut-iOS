@@ -7,9 +7,9 @@ struct MainView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: .zero) {
                 Text("""
-            4월 12일,
-            홍승재님의 기일이에요
-            """)
+                4월 12일,
+                홍승재님의 기일이에요
+                """)
                 .atFont(.pageTitle, color: .white)
                 .multilineTextAlignment(.leading)
                 .padding(.top, 40)
