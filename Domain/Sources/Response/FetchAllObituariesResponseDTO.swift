@@ -54,3 +54,43 @@ extension MortuaryResponseDTO {
         .init(id: id, name: name, lat: lat, lng: lng, createdAt: createdAt)
     }
 }
+
+struct Mortuary: Decodable {
+    let id: Int
+    let name: String
+    let lat, lng: Double
+    let createdAt: String
+}
+
+struct AllUserResponseDTO: Decodable {
+    let id: Int
+    let name: String
+    let email: String
+    let createdAt: String
+}
+
+struct IdUserResponseDTO: Decodable {
+    let id: Int
+    let name: String
+    let lat, lng: Double
+    let createdAt: String
+}
+
+struct UserGetObituariesResponseDTO: Decodable {
+    let id: Int
+    let mortuary: Mortuary
+    let name, phoneNumber, date, createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, mortuary, name
+        case phoneNumber = "PhoneNumber"
+        case date, createdAt
+    }
+}
+
+struct UserWritingLetterResponseDTO: Decodable {
+    let id: Int
+    let toName: String
+    let content: String
+    let createdAt: String
+}
