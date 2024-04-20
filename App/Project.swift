@@ -25,7 +25,8 @@ let project = Project(
             resources: ["Resources/**"],
             dependencies: [
                 .Domain,
-                .DesignSystem
+                .DesignSystem,
+                .SPM.MonthYearWheelPicker
             ]
         )
     ]
