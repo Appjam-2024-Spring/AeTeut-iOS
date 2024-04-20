@@ -1,8 +1,22 @@
-//
-//  LettersClient.swift
-//  Domain
-//
-//  Created by 홍승재 on 4/21/24.
-//
+import Moya
+import Combine
+import CombineMoya
 
-import Foundation
+public final class LettersClient: BaseClient<LettersAPI> {
+    func fetchAllLetter() -> AnyPublisher<[FetchLetterEntity], Error> {
+        request(.fetchAllLetter, dto: [FetchLetterResponseDTO].self)
+            .map { $0.map(\.toDomain) }
+            .eraseToAnyPublisher()
+    }
+
+    func fetchLetterToID(id: Int) -> AnyPublisher<FetchLetterEntity, Error> {
+        request(.fetchLetterToID(id), dto: FetchLetterResponseDTO.self)
+            .map(\.toDomain)
+            .eraseToAnyPublisher()
+    }
+
+    func postLetter(req: PostLetterRequestDTO) -> AnyPublisher<Void, Error> {
+        request(.postLetter(req))
+            .eraseToAnyPublisher()
+    }
+}

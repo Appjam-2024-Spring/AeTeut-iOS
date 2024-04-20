@@ -3,9 +3,9 @@ import Moya
 public enum UserAPI {
     case fetchAllUser
     case fetchUserToID(Int)
-    case getUserObituaries(Int)
-    case UserWritingLetter(Int)
-    case postUserSignUpLogIn(PostLetterRequestDTO)
+    case fetchUserObituaries(Int)
+    case fetchUserWritingLetter(Int)
+    case postUserSignUpLogIn(PostUserSignUpLogInRequestDTO)
 }
 
 extension UserAPI: AeteutAPI {
@@ -22,17 +22,17 @@ extension UserAPI: AeteutAPI {
         case let .fetchUserToID(id):
             return "/\(id)"
             
-        case let .getUserObituaries(id):
+        case let .fetchUserObituaries(id):
             return "/\(id)/obituaries"
             
-        case let .UserWritingLetter(id):
+        case let .fetchUserWritingLetter(id):
             return "/\(id)/letters"
         }
     }
     
     public var method: Method {
         switch self {
-        case .fetchAllUser, .fetchUserToID, .getUserObituaries, .UserWritingLetter:
+        case .fetchAllUser, .fetchUserToID, .fetchUserObituaries, .fetchUserWritingLetter:
             return .get
             
         case .postUserSignUpLogIn:
@@ -42,7 +42,7 @@ extension UserAPI: AeteutAPI {
     
     public var task: Task {
         switch self {
-        case .fetchAllUser, .fetchUserToID, .getUserObituaries, .UserWritingLetter:
+        case .fetchAllUser, .fetchUserToID, .fetchUserObituaries, .fetchUserWritingLetter:
             return .requestPlain
             
         case let .postUserSignUpLogIn(req):

@@ -28,8 +28,8 @@ public extension AeteutAPI {
 
 public enum AeTeutDomain: String {
     case obituaries
-    case letter
-    case userobituarymappings
+    case letters
+    case userObituaryMappings = "user-obituary-mappings"
     case user
 }
 

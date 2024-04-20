@@ -7,7 +7,7 @@ public enum UserObituaryMappingsAPI {
 extension UserObituaryMappingsAPI: AeteutAPI {
 
     public var domain: AeTeutDomain {
-        .userobituarymappings
+        .userObituaryMappings
     }
 
     public var urlPath: String {

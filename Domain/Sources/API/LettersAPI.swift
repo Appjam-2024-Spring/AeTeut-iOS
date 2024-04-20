@@ -1,15 +1,15 @@
 import Moya
 
-public enum LetterAPI {
+public enum LettersAPI {
     case fetchAllLetter
     case fetchLetterToID(Int)
     case postLetter(PostLetterRequestDTO)
 }
 
-extension LetterAPI: AeteutAPI {
+extension LettersAPI: AeteutAPI {
 
     public var domain: AeTeutDomain {
-        .letter
+        .letters
     }
 
     public var urlPath: String {

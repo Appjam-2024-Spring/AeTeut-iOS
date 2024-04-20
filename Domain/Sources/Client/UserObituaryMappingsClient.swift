@@ -1,8 +1,10 @@
-//
-//  UserObituaryMappingsClient.swift
-//  Domain
-//
-//  Created by 홍승재 on 4/21/24.
-//
+import Moya
+import Combine
+import CombineMoya
 
-import Foundation
+public final class UserObituaryMappingsClient: BaseClient<UserObituaryMappingsAPI> {
+    func postUserObituaryMappings(req: PostUserObituaryMappingsRequestDTO) -> AnyPublisher<Void, Error> {
+        request(.postUserObituaryMappings(req))
+            .eraseToAnyPublisher()
+    }
+}
