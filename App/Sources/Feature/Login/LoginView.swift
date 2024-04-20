@@ -1,38 +1,55 @@
-//
-//  LoginView.swift
-//  AeTeut-iOS
-//
-//  Created by 서지완 on 4/20/24.
-//  Copyright © 2024 com.appjam. All rights reserved.
-//
-
 import SwiftUI
+import DesignSystem
 
 struct LoginView: View {
-    @State var isLaunching: Bool = true
-    @State var appleLoginState: Bool = false
-    @State var kakaoLoginState: Bool = false
+    @EnvironmentObject var appState: AppState
+    @StateObject var viewModel: LoginViewModel = .init()
+
     var body: some View {
         VStack {
-            Image("aticon")
+            Spacer()
+
+            ATImage(.aeTeutSplashLogo)
+                .frame(width: 186.5, height: 64)
                 .padding(.top, 278)
                 .padding(.bottom, 288)
 
             Spacer()
 
-            Button {
-                appleLoginState.toggle()
-            } label: {
-                Image("AppleLogin")
+            VStack(spacing: 12) {
+                HStack(spacing: 8) {
+                    ATIcon(.appleLogo)
+                        .frame(20)
+
+                    Text("Apple로 로그인")
+                        .atFont(.subHeadLine, color: .gray10)
+                }
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity)
+                .background(Color.Logo.appleBG)
+                .cornerRadius(8)
+
+                Button(action: viewModel.kakaoButtonDidTap) {
+                    HStack(spacing: 8) {
+                        ATIcon(.kakaoLogo)
+                            .frame(20)
+
+                        Text("카카오로 로그인")
+                            .atFont(.subHeadLine, color: .gray10)
+                    }
+                    .padding(.vertical, 16)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.Logo.kakaoBG)
+                    .cornerRadius(8)
+                }
             }
-            
-            Button {
-                kakaoLoginState.toggle()
-            } label: {
-                Image("KakaoLogin")
-            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 16)
         }
         .background(Color(.black).ignoresSafeArea())
+        .onChange(of: viewModel.isSuccessLogin) { _ in
+            appState.sceneFlow = .main
+        }
     }
 }
 

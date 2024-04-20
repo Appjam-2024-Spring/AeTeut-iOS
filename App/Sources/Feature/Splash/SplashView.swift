@@ -1,12 +1,5 @@
-//
-//  SplashView.swift
-//  AeTeut-iOS
-//
-//  Created by 서지완 on 4/20/24.
-//  Copyright © 2024 com.appjam. All rights reserved.
-//
-
 import SwiftUI
+import DesignSystem
 
 struct SplashView: View {
     @EnvironmentObject var appState: AppState
@@ -16,7 +9,8 @@ struct SplashView: View {
         ZStack {
             Color(.black).ignoresSafeArea()
 
-            Image("aticon")
+            ATImage(.aeTeutSplashLogo)
+                .frame(width: 186.5, height: 64)
         }
         .onAppear {
             viewModel.onAppear {
