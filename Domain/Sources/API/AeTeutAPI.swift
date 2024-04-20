@@ -30,6 +30,7 @@ public enum AeTeutDomain: String {
     case obituaries
     case letter
     case userobituarymappings
+    case user
 }
 
 extension AeTeutDomain {
