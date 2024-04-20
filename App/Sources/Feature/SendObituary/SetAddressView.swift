@@ -3,13 +3,16 @@ import DesignSystem
 
 struct SetAddressView: View {
     @State var text: String = ""
+    @State var isShow = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: .zero) {
-                SearchTextField("발인지를 입력해주세요", text: $text)
+                SearchTextField("발인지를 입력해주세요", text: $text) {
+                    isShow = true
+                }
 
-                ForEach(["asdf", "asdf"], id: \.self) { value in
+                if isShow {
                     NavigationLink {
                         ConfirmView()
                     } label: {

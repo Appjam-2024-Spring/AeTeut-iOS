@@ -7,6 +7,7 @@ struct CalendarView: View {
     var selectedDateString: String {
         "\(selectedDate.year)년 \(selectedDate.month)월"
     }
+    let randomDay = Int.random(in: 1...30)
     @State var columns = Array(repeating: GridItem(.flexible()), count: 7)
     var body: some View {
         VStack(spacing: 4) {
@@ -20,9 +21,11 @@ struct CalendarView: View {
                                 Text("\(model.day)")
                                     .atFont(.subHeadLine, color: model.date.isSameDay(selectedDate) ? .gray10: .gray100)
                                 
-                                Circle()
-                                    .fill(model.date.isSameDay(selectedDate) ? Color.gray10: Color.gray100)
-                                    .frame(4)
+                                if model.date.day == randomDay {
+                                    Circle()
+                                        .fill(model.date.isSameDay(selectedDate) ? Color.gray10: Color.gray100)
+                                        .frame(4)
+                                }
                             }
                             .background {
                                 if model.date.isSameDay(selectedDate) {

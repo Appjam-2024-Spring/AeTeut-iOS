@@ -36,7 +36,7 @@ public struct ATTextField: View {
                     }
 
                 TextField("", text: $text)
-                    .atFont(.body, color: .gray10)
+                    .atFont(.body, color: .gray100)
                     .focused($isFocused)
                     .onSubmit(onCommit)
             }

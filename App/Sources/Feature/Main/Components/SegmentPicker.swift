@@ -15,7 +15,7 @@ public struct SegmentControl: View{
                     .offset(x: geo.size.width / CGFloat(options.count) * CGFloat(selectedIndex), y: 0)
             }
             .frame(height: 44)
-            
+
             HStack(spacing: 0) {
                 ForEach((0..<options.count), id: \.self) { index in
                     Text(options[index])
