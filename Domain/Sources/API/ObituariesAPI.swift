@@ -16,7 +16,6 @@ extension ObituariesAPI: AeteutAPI {
         switch self {
         case .fetchAllObituaries, .postObituary:
             ""
-
         case let .fetchObituariesToID(id):
             "/\(id)"
         }

@@ -69,7 +69,21 @@ struct AllUserResponseDTO: Decodable {
     let createdAt: String
 }
 
+struct AllUserEntity: Equatable {
+    let id: Int
+    let name: String
+    let email: String
+    let createdAt: String
+}
+
 struct IdUserResponseDTO: Decodable {
+    let id: Int
+    let name: String
+    let lat, lng: Double
+    let createdAt: String
+}
+
+struct IdUserEntity: Equatable {
     let id: Int
     let name: String
     let lat, lng: Double
@@ -88,9 +102,38 @@ struct UserGetObituariesResponseDTO: Decodable {
     }
 }
 
+struct UserGetObituariesEntity: Equatable {
+    let id: Int
+    let mortuaryEntity: MortuaryEntity
+    let name, phoneNumber, date, createdAt: String
+}
+
+extension UserGetObituariesResponseDTO {
+    var toDomain: UserGetObituariesEntity {
+        .init(
+            id: id,
+            mortuary: mortuary.toDomain,
+            name: name,
+            phoneNumber: phoneNumber,
+            date: date,
+            createdAt: createdAt
+        )
+    }
+}
+
 struct UserWritingLetterResponseDTO: Decodable {
     let id: Int
     let toName: String
     let content: String
     let createdAt: String
 }
+
+struct UserWritingLetterEntity: Equatable {
+    let id: Int
+    let toName: String
+    let content: String
+    let createdAt: String
+}
+
+
+
