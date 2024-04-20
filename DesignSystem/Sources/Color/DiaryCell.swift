@@ -2,11 +2,11 @@ import SwiftUI
 import DesignSystem
 
 struct DiaryCell: View {
-    let title: String
+    let name: String
     let content: String
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(title)
+            Text(name + "에게,")
                 .atFont(.subHeadLine, color: .gray90)
                 .lineLimit(1)
             

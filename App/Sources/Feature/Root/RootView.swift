@@ -11,8 +11,10 @@ struct RootView: View {
                     .environmentObject(appState)
 
             case .main:
-                MainView()
-                    .environmentObject(appState)
+                NavigationView {
+                    MainView()
+                        .environmentObject(appState)
+                }
 
             case .splash:
                 SplashView()

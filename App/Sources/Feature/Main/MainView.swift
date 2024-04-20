@@ -38,7 +38,11 @@ struct MainView: View {
                         }
                     } else {
                         ForEach(["asdfad", "asdafda"], id: \.self) { value in
-                            DiaryCell(title: value, content: value)
+                            NavigationLink {
+                                DiaryDetailView(name: value, content: value, createdAt: Date())
+                            } label: {
+                                DiaryCell(name: value, content: value)
+                            }
                         }
                     }
                 }
