@@ -25,10 +25,14 @@ struct LoginView: View {
                             }
                         }
                 } else {
+                    Image("aticon")
+                        .padding(.top, 278)
+                        .padding(.bottom, 288)
                     Button {
                         appleLoginState.toggle()
                     }label: {
                         Image("AppleLogin")
+                        
                     }
                     
                     Button {
@@ -36,6 +40,7 @@ struct LoginView: View {
                     }label: {
                         Image("KakaoLogin")
                     }
+                    Spacer()
                 }
             }
         }

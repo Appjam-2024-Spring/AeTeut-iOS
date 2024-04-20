@@ -13,10 +13,7 @@ struct SplashView: View {
     var body: some View {
             ZStack {
                 Color(.black).ignoresSafeArea()
-                //Image("ATLogo") // 로고가 제대로 추가된 경우에 해당 이미지의 이름으로 변경
-                Text("대충 로고 들어감")
-                    .font(.title).bold()
-                    .foregroundStyle(.white)
+                Image("aticon")
             }
     }
 }
