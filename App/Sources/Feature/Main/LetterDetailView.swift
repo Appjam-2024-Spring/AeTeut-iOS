@@ -1,7 +1,7 @@
 import SwiftUI
 import DesignSystem
 
-struct DiaryDetailView: View {
+struct LetterDetailView: View {
     let name: String
     let content: String
     let createdAt: Date

@@ -1,7 +1,7 @@
 import SwiftUI
 import DesignSystem
 
-struct DiaryCell: View {
+struct LetterCell: View {
     let name: String
     let content: String
     var body: some View {
