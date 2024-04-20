@@ -26,7 +26,12 @@ let project = Project(
             dependencies: [
                 .Domain,
                 .DesignSystem,
-                .SPM.MonthYearWheelPicker
+                .SPM.MonthYearWheelPicker,
+                .SPM.KakaoSDKAuth,
+                .SPM.KakaoSDKCommon,
+                .SPM.KakaoSDKUser,
+                .SPM.KakaoSDKShare,
+                .SPM.KakaoSDKTemplate
             ]
         )
     ]
