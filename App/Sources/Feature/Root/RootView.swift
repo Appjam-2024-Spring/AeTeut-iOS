@@ -7,8 +7,9 @@ struct RootView: View {
         ZStack {
             switch appState.sceneFlow {
             case .login:
-                LoginView()
-                    .environmentObject(appState)
+//                LoginView()
+//                    .environmentObject(appState)
+                ReceiveObituaryView()
 
             case .main:
                 NavigationView {

@@ -14,6 +14,7 @@ struct MainView: View {
     @State var isNavigatedToSendObituaryView = false
     @State var date = Date()
     @State var selection = 0
+    @State var isShow = false
     
     let rldlfDummy = [
         "홍길동님의 기일"
@@ -40,7 +41,7 @@ struct MainView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: .zero) {
                 Text("""
-                4월 12일,
+                4월 21일,
                 홍길동님의 기일이에요
                 """)
                 .atFont(.pageTitle, color: .white)
@@ -70,16 +71,21 @@ struct MainView: View {
                             MemorialDayCell(text: value)
                         }
                     } else {
-                        ForEach(rlfhrDummy, id: \.self) { value in
-                            NavigationLink {
-                                LetterDetailView(name: value.name, content: value.content, createdAt: Date())
-                            } label: {
-                                LetterCell(name: value.name, content: value.content)
+                        if isShow {
+                            ForEach(rlfhrDummy, id: \.self) { value in
+                                NavigationLink {
+                                    LetterDetailView(name: value.name, content: value.content, createdAt: Date())
+                                } label: {
+                                    LetterCell(name: value.name, content: value.content)
+                                }
                             }
                         }
                         
                         NavigationLink {
                             WriteLetterView()
+                                .onAppear {
+                                    isShow = true
+                                }
                         } label: {
                             AddLetterButton()
                         }

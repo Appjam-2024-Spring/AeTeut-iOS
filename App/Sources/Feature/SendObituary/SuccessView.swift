@@ -50,9 +50,13 @@ struct SuccessView: View {
                     
                 }
 
-                ATButton(text: "공유하기",  style: .main, isNoPadding: true) {
-                    isNavigatedToSuccess = true
-                    
+                ShareLink(item: URL(string: "https://www.AeTeut.com/shared/36")!) {
+                    Text("공유하기")
+                        .atFont(.subHeadLine, color: .gray10)
+                        .padding(.vertical, 16)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.gray100)
+                        .cornerRadius(8)
                 }
             }
             .padding(.vertical, 12)

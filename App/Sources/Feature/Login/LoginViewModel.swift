@@ -10,15 +10,13 @@ final class LoginViewModel: BaseViewModel {
         //self.isSuccessLogin.toggle()
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                    print(oauthToken)
-                    print(error)
-                    self.isSuccessLogin.toggle()
-                }
-            } else {
-                UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                    print(oauthToken)
-                print(error)
-                }
+                self.isSuccessLogin.toggle()
             }
+        } else {
+            self.isSuccessLogin.toggle()
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                
+            }
+        }
     }
 }

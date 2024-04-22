@@ -2,6 +2,7 @@ import SwiftUI
 import DesignSystem
 
 struct ReceiveObituaryView: View {
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel = ReceiveObituaryViewModel()
     @State var isPressed = false
     var body: some View {
@@ -41,19 +42,17 @@ struct ReceiveObituaryView: View {
                     }
                 }
                 
-                ZStack {
-                    Image("map")
-                        .padding(.bottom, 71)
-                    Image("mappoint")
-                        .padding(.bottom, 120)
-                }
-                .padding(.top, 40)
+
+                Image(.frame457)
+                    .padding(.top, 40)
                 
+                Spacer()
+
                 ATButton(
                     text: "확인",
                     style: .main
                 ) {
-                    isPressed.toggle()
+                    appState.sceneFlow = .main
                 }
                 .atAlert(isPresented: $isPressed,
                          title: "기일을 저장하시겠습니까?",
